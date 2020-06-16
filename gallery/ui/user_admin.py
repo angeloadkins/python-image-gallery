@@ -46,11 +46,8 @@ def option_one():
 
 def list_users():
     cursor = conn.cursor()
-    cursor.execute('select username from users;')
-    users = [] 
-    for record in cursor:
-        users.append(record) 
-    cursor.close()
+    cursor.execute('select * from users')
+    users = cursor.fetchall()
     return users
 
 def option_two():
@@ -59,6 +56,13 @@ def option_two():
     password = input("Password> ")
     fullname = input("Full Name> ")
     cursor.execute('INSERT INTO users (username, password, full_name) VALUES (%s, %s, %s);', (user, password, fullname))
+    s = "Username Inserted"
+    cursor.close()
+    return s
+
+def insert_user(username, password, fullname):
+    cursor = conn.cursor()
+    cursor.execute('INSERT INTO users (username, password, full_name) VALUES (%s, %s, %s);', (username, password, fullname))
     s = "Username Inserted"
     cursor.close()
     return s
@@ -76,6 +80,13 @@ def option_three():
     cursor.close()
     return s
 
+def modify_user_og(username, new_password, new_name):
+    cursor = conn.cursor()
+    cursor.execute("UPDATE users SET password=%s, full_name=%s  where username=%s",(new_password, new_name, username))
+    cursor.close()
+    s = "Name and password updated"
+    return s
+
 def option_four():
     cursor = conn.cursor()
     username = input("Enter username to delete> ")
@@ -88,6 +99,13 @@ def option_four():
     else:
         y = "No one was deleted"
         return y
+
+def delete_user_db(user):
+    cursor = conn.cursor()
+    cursor.execute("DELETE from users where username=%s",(user,))    
+    cursor.close()
+    return "user deleted"
+
 
 def option_five():
     print("Bye")
