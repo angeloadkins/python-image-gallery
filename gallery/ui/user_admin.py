@@ -3,7 +3,7 @@
 import psycopg2
 import json
 import sys 
-from secrets_adkins import get_secret_image_gallery
+from .secrets_adkins import get_secret_image_gallery
 
 db_host="image-gallery.cskbuoevouol.us-west-1.rds.amazonaws.com"
 db_name="image_gallery"

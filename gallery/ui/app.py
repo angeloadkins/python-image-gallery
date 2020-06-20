@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import request
 from flask import render_template
-from user_admin import list_users, option_one, delete_user_db, insert_user, modify_user_og
+from .user_admin import list_users, option_one, delete_user_db, insert_user, modify_user_og
 
 app = Flask(__name__)
 
