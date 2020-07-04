@@ -5,7 +5,7 @@ import json
 import sys 
 from .secrets_adkins import get_secret_image_gallery
 
-db_host="m5-image-gallery.cskbuoevouol.us-west-1.rds.amazonaws.com"
+db_host="image-gallery.cskbuoevouol.us-west-1.rds.amazonaws.com"
 db_name="image_gallery"
 db_user="image_gallery"
 
